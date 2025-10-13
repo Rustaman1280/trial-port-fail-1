@@ -1,0 +1,41 @@
+---
+title: "Block Crust Adventure"
+slug: "block-crust"
+summary: "A tactile Flutter arcade that fuses voxel worlds with haptic puzzles, shipped to iOS, Android, and web in one codebase."
+tags:
+  - Mobile
+  - Game
+  - Hardware
+year: 2023
+cover: "/images/projects/block-crust.webp"
+tech:
+  - Flutter
+  - Flame Engine
+  - Firebase Realtime Database
+  - Rive
+  - Cloud Run
+outcomes:
+  - Top 5 launch on Google Play Indie corner
+  - 18-minute average session duration
+  - 0.8% crash rate across 12 device classes
+featured: true
+---
+
+import { Gallery } from "@/components/mdx/mdx-components";
+
+## Gameplay loops
+
+- Built responsive voxel renderer with custom shaders, 120hz animation loops, and battery-aware performance budgets.
+- Designed puzzle difficulty curves using telemetry-driven scoring and ML-based hint generation.
+- Implemented cross-device save slots with Firebase listeners and offline-first persistence.
+
+## Motion & polish
+
+<Gallery images={[
+  { src: "/images/projects/block-crust-battle.webp", alt: "Boss battle animation" },
+  { src: "/images/projects/block-crust-builder.webp", alt: "Level builder UI" }
+]} />
+
+- Authored cinematic haptics with Core Haptics + custom Android vibration patterns.
+- Composed 150+ micro-interactions with Rive state machines and spring physics.
+- Added tactile audio cues with procedural synthesis for accessible gameplay.

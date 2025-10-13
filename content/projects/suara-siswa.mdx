@@ -1,0 +1,55 @@
+---
+title: "Suara Siswa Civic Platform"
+slug: "suara-siswa"
+summary: "Rebuilt the student voice movement into a modular Next.js platform powering advocacy across 120+ schools."
+tags:
+  - Web
+  - Civic Tech
+  - DX
+year: 2024
+cover: "/images/projects/suara-siswa.webp"
+tech:
+  - Next.js
+  - TypeScript
+  - Turborepo
+  - Tailwind CSS
+  - PlanetScale
+  - Resend
+outcomes:
+  - 4.3x faster content publishing
+  - 99.98% uptime during regional elections
+  - 65% increase in petition signatures
+featured: true
+---
+
+import { Callout, Steps } from "@/components/mdx/mdx-components";
+
+## The brief
+
+Turn a static Wordpress site into a high-trust civic engagement OS with powerful storytelling, moderation tooling, and analytics.
+
+## Architecture
+
+<Steps>
+  <div>
+    <strong>Design system refactor</strong>
+    <p>Authored a cohesive shadcn/ui-driven design system with AA+ contrast, semantic tokens, and automated docs in MDX.</p>
+  </div>
+  <div>
+    <strong>Edge-ready API</strong>
+    <p>Built edge API routes backed by PlanetScale + Drizzle ORM with row-level security for student privacy.</p>
+  </div>
+  <div>
+    <strong>Moderation workflows</strong>
+    <p>Created command center dashboards with review queues, toxicity scoring, and AI-generated summaries.</p>
+  </div>
+</Steps>
+
+## Launch impact
+
+<Callout type="info" title="Election Week">
+Handled a 28k RPM surge with graceful degradation, proactive caching, and Slack alerting pipelines.
+</Callout>
+
+- Introduced motion primitives for card hover, parallax banners, and sticky legislative trackers.
+- Optimized LCP to 1.1s on 3G via partial hydration and granular image streaming.
