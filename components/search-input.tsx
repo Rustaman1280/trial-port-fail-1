@@ -1,7 +1,14 @@
 "use client";
 
 import { Search } from "lucide-react";
-import { forwardRef, useState, type ChangeEvent, type InputHTMLAttributes } from "react";
+import {
+  forwardRef,
+  useEffect,
+  useRef,
+  useState,
+  type ChangeEvent,
+  type InputHTMLAttributes,
+} from "react";
 import { cn } from "@/lib/utils";
 
 interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -11,10 +18,19 @@ interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
   (
-    { className, onDebouncedChange, debounce = 220, onChange, ...props }: SearchInputProps,
+    {
+      className,
+      onDebouncedChange,
+      debounce = 220,
+      onChange,
+      ...props
+    }: SearchInputProps,
     ref,
   ) => {
     const [value, setValue] = useState(props.value?.toString() ?? "");
+    const timeout = useRef<number | undefined>(undefined);
+
+    useEffect(() => () => window.clearTimeout(timeout.current), []);
 
     return (
       <label className="relative block">
@@ -29,9 +45,11 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
             setValue(next);
             onChange?.(event);
             if (onDebouncedChange) {
-              window.clearTimeout((window as typeof window & { __searchTimeout?: number }).__searchTimeout);
-              const timeout = window.setTimeout(() => onDebouncedChange(next), debounce);
-              (window as typeof window & { __searchTimeout?: number }).__searchTimeout = timeout;
+              window.clearTimeout(timeout.current);
+              timeout.current = window.setTimeout(
+                () => onDebouncedChange(next),
+                debounce,
+              );
             }
           }}
           className={cn(
